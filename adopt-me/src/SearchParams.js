@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { ANIMALS } from "@frontendmasters/pet";
 
 const SearchParams= () => {
   const [ location , setLocation ] = useState('Seattle, WA');
