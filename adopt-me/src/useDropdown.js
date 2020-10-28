@@ -15,11 +15,12 @@ const useDropdown = (label, defaultState, options) =>  {
         >
         <option>All</option>
         {options.map(item => (
-          <option value={item} key={item}>{item}</option>
+          <option value={item} key={item}>
+            {item}
+          </option>
         ))};
       </select>
     </label>
-
   );
 
   return [ state, Dropdown, setState ];
