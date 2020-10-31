@@ -3,14 +3,18 @@ import pet from "@frontendmasters/pet";
 
 class Details extends React.Component {
   /** super call the constructor here, on the Details class component  **/
+  /*
   constructor(props) {
     super(props);
-    
-    /** Instantiating the state (init)  */
+  */  
+    /** Instantiating the state (init)
     this.state = {
       loading: true
     };
-  }
+  }  */
+
+  /** new constructor's class Syntax  **/
+  state = { loading: true };
 
 
   /**  passed to pet a single animal looking for the id */
