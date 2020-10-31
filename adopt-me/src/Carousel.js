@@ -26,6 +26,24 @@ class Carousel extends React.Component {
     return { photos };
   }
 
+  /**
+   * !! every DATAs coming from the DOM is a string 
+   *  ==> need to convert into a nulber here cos' its what we expect
+   * ===> "+" convert it for us 
+   * 
+   * !! This context Issue 
+   *  ==> creating a Arrow function which
+   * don't create context, allows to fix the problem
+   * ===> USE ARROW FUNCTION FOR EVENT LISTENERS
+   *          OR WHEN PASSING A FUNCTION TO A CHILDREN 
+   * => ITS THE EASY WAY TO DO!!!!
+   * **/
+  handleIndexClick = event => {
+    this.setState({
+      active: +event.target.dataset.index
+    });
+  };
+
   render() {
     const { photos, active } = this.state; 
 
