@@ -7,7 +7,7 @@ import  Details  from './Details';
 
 const App = () => {
  
-  /** :id =>the way doing variables with path  **/
+  /** :id =>the way doing variables using path  **/
   return (
     <React.StrictMode>
       <div>
