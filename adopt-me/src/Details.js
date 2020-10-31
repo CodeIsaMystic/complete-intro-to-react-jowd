@@ -29,9 +29,8 @@ class Details extends React.Component {
         });
       }, console.error);
   }
-  
-  render() {
 
+  render() {
     /** Debugging Trick
      *  preformatted, code for code, & JSON stringify
      *  it's a way to see everything's coming from the router
@@ -40,10 +39,24 @@ class Details extends React.Component {
      *    <pre>
      *      <code>{JSON.stringify(props, null, 4)}</code>
      *    </pre>    
-     * )
-     * 
-     **/
+     * )     **/
+
+    if(this.state.loading) {
+      return <h1>loading...</h1>
+    }
+
+    /**  Destructuring  **/
+    const { animal, breed, location, description, name } = this.state;
+
     return (
+      <div className="details">
+        <div>
+          <h1>{name}</h1>
+          <h2>{`${animal} - ${breed} - ${location}`}</h2>
+          <button>Adopt {name}</button>
+          <p>{description}</p>
+        </div>
+      </div>
     );
   }
 }

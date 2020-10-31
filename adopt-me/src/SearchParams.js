@@ -12,7 +12,6 @@ import Results from "./Results";
 
 const SearchParams= () => {
   const [ location , setLocation ] = useState('Seattle, WA');
-
   const [ breeds, setBreeds ] = useState([]);
   const [ animal, AnimalDropdown ] = useDropdown("Animal", "Dog", ANIMALS);
   const [ breed, BreedDropdown, setBreed ] = useDropdown("Breed", "", breeds);
@@ -54,10 +53,10 @@ const SearchParams= () => {
   }, [animal, setBreed, setBreeds ]);  
   /** right above, the deps list in the array...
    * esLint demand to set setBreeds, setBreed 
-   * even we know ti do not gonna change 
+   * even we know it do not gonna change 
    *  but its still depend on them 
    * 
-   * ==> so , if one of these things change , then render and rerun */
+   * ==> so , if one of these things change , then render and re-run */
 
   return (
     <div className="search-params" >
@@ -75,8 +74,8 @@ const SearchParams= () => {
           />
         </label>
         
-         <AnimalDropdown />
-         <BreedDropdown />
+        <AnimalDropdown />
+        <BreedDropdown />
 
         <button>Submit</button>
 
