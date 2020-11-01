@@ -1,26 +1,31 @@
 import React from "react";
 import pet from "@frontendmasters/pet";
 import Carousel from "./Carousel";
+import ErrorBoundary from "./ErrorBoundary";
 
 
 class Details extends React.Component {
   /** super call the constructor here, on the Details class component  **/
-  /*
+  
   constructor(props) {
     super(props);
-  */  
-    /** Instantiating the state (init)
+  
+    /** Instantiating the state (init) **/
     this.state = {
       loading: true
     };
-  }  */
+  }  
 
-  /** new constructor's class Syntax  **/
+  /** new constructor's class Syntax  
+   *  only work with .babelrc preset 
+   * and NPM package too 
   state = { loading: true };
-
+  **/
 
   /**  passed to pet a single animal looking for the id */
   componentDidMount() {
+   throw new Error("We got a problem!");
+
     pet.animal(this.props.id)
       .then(({ animal }) => {
         this.setState({
@@ -68,4 +73,14 @@ class Details extends React.Component {
   }
 }
 
-export default Details;
+/**  Using the spread operator here cos' we don't care 
+ * about what those props are **/
+export default function DetailsErrorBoundary(props) {
+  return (
+    <ErrorBoundary>
+      <Details {...props} />
+    </ErrorBoundary>
+  );
+}
+
+/*export default Details;*/
