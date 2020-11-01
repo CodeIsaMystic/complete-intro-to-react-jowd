@@ -8,10 +8,15 @@ import ThemeContext from './ThemeContext';
 
 const App = () => {
   /**  same way:
-   * => const [color, setColor] = useState('darkblue)
+   * => const [color, setColor] = useState('peru')
    * & here the default color value
+   * 
+   * In the case of multiple hooks:
+   * => we can use an object instead of a string 
+   * => mainBtnColor:... , modalBtnCol:..., deleteBtnCol:...
+   * ==> apply then on sibling markup element!!??
    */
-  const themeHook = useState('darkblue');
+  const themeHook = useState('peru');
  
   /** :id =>the way doing variables using path  **/
   return (
