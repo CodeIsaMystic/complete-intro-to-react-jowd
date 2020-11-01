@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import pet, { ANIMALS } from "@frontendmasters/pet";
 import useDropdown from "./useDropdown";
 import Results from "./Results";
-
+import ThemeContext from "./ThemeContext";
 /**
  * NOTE that the API connect is already handled on the @frontendmasters/pet
  *   => we do just change the location for:
@@ -16,6 +16,7 @@ const SearchParams= () => {
   const [ animal, AnimalDropdown ] = useDropdown("Animal", "Dog", ANIMALS);
   const [ breed, BreedDropdown, setBreed ] = useDropdown("Breed", "", breeds);
   const [ pets, setPets ] = useState([]);
+  const [ theme ] = useContext(ThemeContext);
 
   /**  Garantee to have a Promise  **/
   async function requestPets() {
@@ -77,9 +78,9 @@ const SearchParams= () => {
         <AnimalDropdown />
         <BreedDropdown />
 
-        <button>Submit</button>
+        <button style={{ backgroundColor: theme }}>Submit</button>
 
-      </form>
+      </form>  
       <Results pets={pets} />
     </div>
   );
